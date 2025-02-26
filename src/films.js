@@ -50,7 +50,7 @@ orderByYear(movies);
 function moviesAverageByCategory(array,genre) {
   let totalGenre = array.filter(movie => movie.genre.includes(genre));
   let totalScoreGenre = totalGenre.map(movie => movie.score).reduce((a, b) => a + b);
-  let avgGenre = (totalScoreGenre / totalGenre.length).toFixed(2);
+  let avgGenre = Number((totalScoreGenre / totalGenre.length).toFixed(2));
   console.log("Exercise 6 ->", avgGenre);
   return avgGenre;
 }

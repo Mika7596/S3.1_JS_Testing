@@ -56,29 +56,29 @@ moviesAverageByCategory(movies, "Drama");
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(array) {
-//   let hours;
-//   let minutes;
-//   let durations = array.map( movie => {
-//     if (!movie.duration.includes("h")){
-//       hours = 0;
-//     } else{
-//       hours = Number(movie.duration.trim().slice(0, movie.duration.trim().indexOf("h")))
-//     }
-//     if (!movie.duration.includes("m")){
-//       minutes = 0;
-//     } else{
-//       minutes = Number(movie.duration.slice(movie.duration.indexOf("m")-2, movie.duration.indexOf("m")));
-//     }
-//     let durationInMinutes = hours * 60 + minutes;
-//     return {
-//       ...movie,
-//       duration: durationInMinutes
-//     }
-//   });
-//   console.log("Exercise 7 ->");
-//   console.log(durations);
+  let hours;
+  let minutes;
+  let durations = array.map( movie => {
+    if (!movie.duration.includes("h")){
+      hours = 0;
+    } else{
+      hours = Number(movie.duration.trim().slice(0, movie.duration.trim().indexOf("h")))
+    }
+    if (!movie.duration.includes("m")){
+      minutes = 0;
+    } else{
+      minutes = Number(movie.duration.slice(movie.duration.indexOf("m")-2, movie.duration.indexOf("m")));
+    }
+    let durationInMinutes = hours * 60 + minutes;
+    return {
+      ...movie,
+      duration: durationInMinutes
+    }
+  });
+  console.log("Exercise 7 ->", durations);
+  return durations
  }
-// hoursToMinutes(movies)
+hoursToMinutes(movies)
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear(array, year) {
@@ -111,4 +111,3 @@ if (typeof module !== 'undefined') {
     bestFilmOfYear
   };
 }
-console.log('first commit');

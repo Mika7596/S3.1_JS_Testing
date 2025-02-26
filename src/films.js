@@ -19,8 +19,14 @@ getMoviesFromDirector(movies, "Frank Darabont")
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
-  
+  const moviesList = getMoviesFromDirector(array, director);
+  let totalScore = moviesList.reduce((a, b) => a.score + b.score);
+  let avgScore = (totalScore / moviesList.length).toFixed(2);
+  console.log(avgScore);
+  return avgScore;
 }
+moviesAverageOfDirector(movies, "Frank Darabont")
+
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {

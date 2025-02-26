@@ -49,7 +49,7 @@ function moviesAverageByCategory(array,genre) {
   let totalGenre = array.filter(movie => movie.genre.includes(genre));
   let totalScoreGenre = totalGenre.map(movie => movie.score).reduce((a, b) => a + b);
   let avgGenre = (totalScoreGenre / totalGenre.length).toFixed(2);
-  console.log(avgGenre);
+  console.log("Exercise 6 ->", avgGenre);
   return avgGenre;
 }
 moviesAverageByCategory(movies, "Drama");
@@ -82,18 +82,23 @@ hoursToMinutes(movies)
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear(array, year) {
-//   let moviesOfYear = array.filter( movie => movie.year == year);
-//   let highestScore = 0;
-//   let bestFilm;
-//   moviesOfYear.forEach( movie => {
-//     if (movie.score > highestScore){
-//       bestFilm = movie;
-//     }
-//   })
-//   console.log(bestFilm)
+  let moviesOfYear = array.filter( movie => movie.year == year);
+  let highestScore = 0;
+  let bestFilm =[];
+  moviesOfYear.forEach( movie => {
+    if (movie.score > highestScore){
+      bestFilm = [];
+      bestFilm.push(movie);
+      highestScore = movie.score;
+    }
+    if (movie.score == highestScore){
+      bestFilm.push(movie)
+    }
+  })
+  console.log("Exercise 8 ->", bestFilm)
 }
 
-// bestFilmOfYear(movies, 1984)
+bestFilmOfYear(movies, 1984)
 
 
 

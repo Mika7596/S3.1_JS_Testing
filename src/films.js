@@ -1,4 +1,4 @@
-// const movies = require('./data');
+const movies = require('./data');
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
@@ -20,8 +20,9 @@ getMoviesFromDirector(movies, "Frank Darabont")
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
   const moviesList = getMoviesFromDirector(array, director);
-  let totalScore = moviesList.reduce((a, b) => a.score + b.score);
-  let avgScore = (totalScore / moviesList.length).toFixed(2);
+  let scoreList = moviesList.map(movie => movie.score);
+  let totalScore = Number(scoreList.reduce((a, b) => a + b));
+  let avgScore = Number((totalScore / moviesList.length).toFixed(2));
   console.log("Exercise 3 ->", avgScore);
   return avgScore;
 }
@@ -38,7 +39,8 @@ orderAlphabetically(movies)
 
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
-  let orderdYear = array.sort((a, b) => a.title > b.title ? 1 : -1).sort((a, b) => a.year - b.year);
+  let orderdYear = array.map(movie => movie)
+  orderdYear.sort((a, b) => a.title > b.title ? 1 : -1).sort((a, b) => a.year - b.year);
   console.log("Exercise 5 -> ", orderdYear);
   return orderdYear;
 }
@@ -96,6 +98,7 @@ function bestFilmOfYear(array, year) {
     }
   })
   console.log("Exercise 8 ->", bestFilm)
+  return bestFilm
 }
 
 bestFilmOfYear(movies, 1984)

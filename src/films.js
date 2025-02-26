@@ -1,4 +1,4 @@
-const movies = require('./data');
+// const movies = require('./data');
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
@@ -22,7 +22,7 @@ function moviesAverageOfDirector(array, director) {
   const moviesList = getMoviesFromDirector(array, director);
   let totalScore = moviesList.reduce((a, b) => a.score + b.score);
   let avgScore = (totalScore / moviesList.length).toFixed(2);
-  console.log(avgScore);
+  console.log("Exercise 3 ->", avgScore);
   return avgScore;
 }
 moviesAverageOfDirector(movies, "Frank Darabont")
@@ -30,8 +30,11 @@ moviesAverageOfDirector(movies, "Frank Darabont")
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+  let orderedNames = array.map(movie => movie.title).sort().slice(0, 20);
+  console.log("Exercise 4 ->", orderedNames);
+  return orderedNames;  
 }
+orderAlphabetically(movies)
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {
